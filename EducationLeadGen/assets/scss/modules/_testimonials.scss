@@ -1,0 +1,51 @@
+#testimonials{
+	background: url(../images/testimonials_bg.jpeg) no-repeat;
+	background-size: cover;
+	position: relative;
+	&:after{
+		content:"";
+		display: block;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		width: 100%;
+		background-color: $brand-color;
+		opacity: 0.8;
+	}
+	.title, .sub-text{
+		color: $white;
+	}
+	.sub-text:after{
+		display: none;
+	}
+	.container{
+		z-index: 1;
+		position: relative;
+	}
+	.testmonial-wrapper{
+		max-width: 750px;
+		@include center;
+		margin-top: 40px;
+	}
+	blockquote {
+		border-left: none;
+		p{
+			@include text-center;
+			color: $white;
+			font-weight: normal;
+			font-size: $font-14;
+		}
+		.item-meta{
+			color: $white;
+			margin-top: 20px;
+		}
+	    @include text-center;
+	}
+	.slick-prev, .slick-next{
+		left: -79px;
+	}
+	.slick-next{
+		right: -79px;
+		left: auto;
+	}
+}

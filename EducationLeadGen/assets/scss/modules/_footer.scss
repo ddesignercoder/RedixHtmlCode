@@ -1,0 +1,114 @@
+.footer{background: #3c3c3c; padding: 40px 0; color:#a3a3a3; 
+	a{color:#a3a3a3; text-decoration: none; outline: none; display: block; text-transform: capitalize;
+		&:hover{
+			color:$secondary-color;
+			@include anim(all, .5s, ease);
+		}
+	}
+	.title {font-size: $font-18; color: $white; text-transform: uppercase; margin-bottom: 20px; font-family: 'Conv_Raleway-Regular', Sans-serif;
+		span{
+			font-family: 'Conv_Raleway-Bold', Sans-serif;
+		}
+		@include tablet{
+			font-size: $font-36;
+			margin-bottom: 40px;
+		}
+	}
+		ul{
+			li{margin-bottom: 10px; list-style-type: none;}
+		}
+	.social-connect {
+		a{display: inline-block; margin-right: 12px; border: 1px solid $gray-color; width: 45px; height: 45px; @include circle; @include text-center; vertical-align: top; @extent universal-anim;
+			i{position: relative; top: 9px; left: 8px; @extent universal-anim; width: 31px; height: 31px; display: block; @include text-center; @include center; 
+				&.icon-Facebook{
+					background-position: -85px -755px;
+				}
+				&.icon-twitter{
+					background-position: -85px -799px;
+				}
+				&.icon-g-plus{
+					background-position: -78px -838px;
+					top: 11px;
+					left: 0;
+				}
+				&.icon-linkedin{
+					background-position: -85px -714px;
+					left: 5px;
+				}
+			}
+			&:last-child{margin-right:0;}
+			@include desktop{
+				&:hover{
+					border-color: $secondary-color;
+					background-color: $secondary-color;
+					i{
+						&.icon-Facebook{
+							background-position: -85px -584px;
+						}
+						&.icon-twitter{
+							background-position: -85px -628px;
+						}
+						&.icon-g-plus{
+							background-position: -78px -667px;
+						}
+						&.icon-linkedin{
+							background-position: -85px -543px;
+						}
+					}
+				}
+			}
+		}
+		@include mobile-only{
+			h4{margin-top: 20px;}
+		}
+	}
+	.susbcibe-wrap{
+		max-width: 400px;
+		.subscribe-input{ width: 75%; float: left;}
+		input{
+			@include border-radius(3px);
+			border:1px solid $light-gray;
+			padding: 0 10px;
+			height: 40px;
+			background-color: #f4f4f4;
+			border-top-right-radius: 0;
+			border-bottom-right-radius: 0;
+			float: left;
+		}
+		.subscribe-btn{ 
+			width: 25%;
+			float: left;
+			@include border-radius(3px);
+			border-top-left-radius: 0;
+			border-bottom-left-radius: 0;
+			@include text-center;
+			height: 40px;
+			padding: 5px 0;
+			i{font-size: $font-22;}
+		}
+		@include mobile-only{
+			margin-top:10px;
+			.subscribe-input{ width: 70%;}
+			.subscribe-btn{width: 30%;}
+		}
+	}
+	.contact-info{
+		.all-icons{
+			width: 28px;
+			height: 29px;
+			display: inline-block;
+			float: left;
+			margin-right: 10px;
+		}
+		.location-ic{
+			background-position: left -765px;
+		}
+		.time-ic{
+			background-position: -38px -765px;
+		}
+		.call-ic{
+			background-position: -38px -812px;
+		}
+	}
+	.copyright{ color:#8a8989; margin-top: 20px; font-size: $font-14;}
+}

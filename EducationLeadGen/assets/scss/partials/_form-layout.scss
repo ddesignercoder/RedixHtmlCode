@@ -1,0 +1,285 @@
+.custom-form-controls{
+	input:disabled, input:disabled + label {
+		opacity:0.4;
+	}
+	.errorMsg {
+		display:none;
+	}
+	input[type=radio], input[type=checkbox] {
+		display:none;
+	}
+	input[type=checkbox] + label{
+		padding:0 0 0 22px; 
+		position:relative; 
+		top: 0;
+	}
+	input[type=checkbox] + label:before {
+		content:""; 
+		width:14px; 
+		height:14px; 
+		background-color:$white; 
+		border:1px solid #e3e3e3; 
+		position:absolute; 
+		left:0; 
+		top:1px; 
+		z-index:2;
+	}
+	
+	input[type=checkbox]:checked + label:before{
+		content:"\f128"; 
+		font-weight: bold; 
+		color:$white; 
+		font-size: 11px; 
+		background-color:$brand-color; 
+		@include text-center; 
+		border:1px solid $brand-color;
+	}
+
+	input[type=radio] + label{
+		padding:0px 15px 0px 22px;
+		position:relative;
+		top: 0;
+	}
+	input[type=radio] + label:before {
+		width:14px; 
+		height:14px; 
+		background-color:$white; 
+		border:1px solid #e3e3e3; 
+		@include circle; 
+		position:absolute; 
+		left:0; 
+		top:2px; 
+		content:""; 
+		z-index:2; 
+		transition-duration:0.1s;
+	}
+	input[type=radio]:checked + label:before {
+		content:"\2022"; 
+		color:$brand-color; 
+		font-size:24px; 
+		@include text-center; 
+		line-height:9px; 
+		text-shadow:0 0 3px #eee;
+		border:1px solid $brand-color; 
+		transition-duration:0.1s;
+	}
+
+	@-moz-document url-prefix() {
+	    input[type=radio]:checked + label:before{
+	    	line-height:11px; 
+	    	padding-right: 0px;
+	    }
+	}
+
+	/*CSS hack for IE 10+ */
+	@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+		input[type=radio]:checked + label:before{
+			line-height:5px;
+		}
+	}
+
+	input[type=text] [class=error]{
+		border-bottom:solid 1px #fccac1;
+	}
+
+	select {
+		border:none;
+		border-radius:0px !important;
+		border-bottom:1px solid $input-border-color;
+		width:100%;
+		-webkit-appearance: none;
+	    -moz-appearance: none;
+	    text-overflow: '';
+	    padding: 6px 0 0;
+	    background:url(../images/dropdown-arrw.png) no-repeat right center;
+	    background-size: 10px;
+	    outline: none;
+	    font-size: 15px;
+	    color: #666;
+	    -webkit-border-radius: 0;
+	    -moz-border-radius: 0;
+	    -o-border-radius: 0;
+	    border-radius: 0;
+	    height: 45px;
+	    outline: none;
+		&:focus, &:active, &:visited {
+			-webkit-border-radius: 0 !important;
+		    -moz-border-radius: 0 !important;
+		    -o-border-radius: 0 !important;
+		    border-radius: 0 !important;
+			border:none;
+			background-size: 10px;
+			outline: none;
+			border-bottom:1px solid #b2b2b2;
+		}
+		&::-ms-expand {
+	    	display: none;
+		}
+	}
+
+	.error{
+		border-bottom:solid 1px #cd3115 !important;
+	}
+	.error-msg{
+		position:absolute;
+		color:#bf2e2e;
+		display:block;
+		bottom: -20px;
+		font-size: 12px;
+	}
+}
+
+/* input field */
+.custom-form-controls{
+	position:relative; 
+	@include full-width;
+	margin-bottom: 15px;
+
+	&.no-field{
+		margin: 23px 0 0 0;
+		 input[type=checkbox]+label:before{top:2px;}
+	}
+
+	&.inline{
+		width: auto;
+	}
+	/*label, input, textarea, .select-dropdown{
+		font-size: $font-15;
+	}*/
+	input, textarea, .select-dropdown{
+		position:relative; 
+		z-index:20; 
+		background:none; 
+		display:block; 
+		border:none; 
+		border-bottom:solid 1px $input-border-color; 
+		padding:20px 5px 5px 0;
+		width:100%; 
+		height: 45px; 
+		text-decoration: none !important; 
+		color:$input-label;
+	}
+	label{
+		position:absolute; 
+		top:16px; 
+		font-weight:normal; 
+		left:0; 
+		z-index:9; 
+		color:$input-label; 
+		transition: all 0.2s;
+		small{font-size: $font-11}
+	}
+	input:focus + label {
+		top:0px; 
+		transition: all 0.2s; 
+		font-size:$font-12; 
+		color:$brand-color;
+	}
+	
+	.filled {
+		top:0px !important; 
+		transition: all 0.2s; 
+		font-size:$font-12 !important; 
+		color:$brand-color !important;
+	}	
+	textarea {
+		resize:vertical;
+
+		&:focus + label {
+			top:-6px; 
+			transition: all 0.2s; 
+			font-size:$font-12; 
+			color:$brand-color;
+		}
+	}
+	.select-dropdown{
+		padding: 15px 5px 5px 0;
+		.select-down-arrow{
+			float: right; 
+			font-size: 10px; 
+			transition: all 0.2s !important;
+		}
+	}
+	.dropdown-open{
+		position:absolute; 
+		width: 100%; 
+		height: 0; 
+		overflow-y: auto; 
+		background: $white; 
+		z-index: 99;
+		display: none;
+		transition: all 0.2s !important;
+		border:1px solid #dddddd;
+
+		li {
+			margin-bottom: 0px;
+			a{
+				padding:10px 12px; 
+				color:$input-label; 
+				display:block; 
+				text-decoration: none !important;
+
+				&:hover{
+					background-color:#f1f1f1; 
+					color:#2c2c2c;
+				}
+			}
+		}
+	}	
+	textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
+		-webkit-transition: border linear .2s;
+		-moz-transition: border linear .2s;
+		-o-transition: border linear .2s;
+		transition: border linear .2s;
+	}
+	textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="date"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="color"]:focus, .uneditable-input:focus {
+		border-color: $brand-color !important;
+		outline: 0;
+	}
+	@include mobile-only{margin-bottom: 20px;}
+}
+
+.custom-form-controls.dropdownActive {
+	.select-dropdown {
+		i {
+			transform: rotate(180deg);
+			transition: all 0.2s !important;
+		}
+	}
+	.dropdown-open {
+		height: 170px;
+		border: 1px solid #cecece;
+		transition: all 0.2s !important;
+		box-shadow: 0 0 4px #efefef;
+	}
+}
+
+.custom-form-controls.error {
+	.select-dropdown {
+		color:#bf2e2e;
+		border-bottom:1px solid #bf2e2e !important;
+	}
+	input {
+		border-bottom:1px solid #bf2e2e !important;
+
+		&:focus + .errorMsg {
+			top:5px !important;
+			transition: all 0.2s !important; 
+		}
+	}
+	textarea {
+		border-bottom:1px solid #bf2e2e !important;
+	}
+	select {
+		border-bottom:1px solid #bf2e2e !important;
+		color:#bf2e2e;	
+	}
+	.title {
+		display:none;
+	}
+	.errorMsg {
+		color: #bf2e2e;
+		display:block;
+		font-size: 12px;
+	}
+}
